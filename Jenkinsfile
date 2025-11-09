@@ -1,18 +1,23 @@
 pipeline {
-    agent any   
+    agent any
+
     stages {
+
         stage('Checkout') {
             steps {
-           git url: 'https://github.com/expertszen/java-standalone-application.git',
+                // If this job is "Pipeline script from SCM", you can also use: checkout scm
+                git url: 'https://github.com/krishna888tdk-cmd/java-standalone-application.git',
                     branch: 'main'
+            }
         }
+
+        stage('Build') {
+            steps {
+                // Windows agent → use bat
+                bat 'mvn clean package'
+            }
         }
-        
-        stage('Build'){
-        steps {
-         bat 'mvn clean package'
-        }
-        }
+
         stage('Run Application') {
             steps {
                 // Adjust jar name if your pom gives a different finalName
