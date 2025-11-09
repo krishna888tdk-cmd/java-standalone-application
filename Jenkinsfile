@@ -8,16 +8,18 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            // write your logic here
+            git url: 'https://github.com/expertszen/java-standalone-application.git',
+                    branch: 'main'
         }
         stage('Build') {
-            // write your logic here
+            git url: 'https://github.com/expertszen/java-standalone-application.git',
+                    branch: 'main'
         }
         stage('Run Application') {
-            // write your logic here
+            bat 'java -jar target/java-standalone-application.jar'
         }
         stage('Test') {
-            // write your logic here
+             bat 'mvn test'
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
