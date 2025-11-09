@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Windows agent → use bat
-                bat 'mvn install package'
+                bat 'mvn clean package'
             }
         }
 
