@@ -21,7 +21,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Adjust jar name if your pom gives a different finalName
-        bat 'java -jar target/java-standalone-application-1.0-SNAPSHOT.jar.com.expertszen'
+        bat 'java -cp target/java-standalone-application-1.0-SNAPSHOT.jar.com.expertszen.App'
             }
         }
 
