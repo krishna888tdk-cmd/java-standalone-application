@@ -33,7 +33,7 @@
         <archive>
             <manifest>
                 <addClasspath>true</addClasspath>
-                <mainClass>com.example.MainApp</mainClass>
+                <mainClass>com.expertszen.App</mainClass>
             </manifest>
         </archive>
     </configuration>
