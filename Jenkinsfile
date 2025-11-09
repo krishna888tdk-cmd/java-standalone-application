@@ -2,22 +2,24 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK17'
-        maven 'Maven3'
+        jdk 'JDK21'
+        bat 'mvn...'
     }
 
     stages {
         stage('Checkout') {
-            // write your logic here
+           git url: 'https://github.com/expertszen/java-standalone-application.git',
+                    branch: 'main'
         }
         stage('Build') {
-            // write your logic here
+           // you are on Windows → use bat
+                bat 'mvn clean package'
         }
         stage('Run Application') {
-            // write your logic here
+            bat 'java -jar target/java-standalone-application.jar'
         }
         stage('Test') {
-            // write your logic here
+            bat 'mvn test'
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
